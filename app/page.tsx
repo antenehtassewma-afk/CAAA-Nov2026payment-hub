@@ -11,20 +11,21 @@ export default function UnifiedPaymentHub() {
       id: "org1",
       name: "Commonwealth Amhara Association",
       subtitle: "November 28, 29 2026 Fundraisers",
-      zelle: "commonwealthamhara.dmv@gmail.com",
+      zelleEmail: "commonwealthamhara.dmv@gmail.com",
       cashappUrl: "https://cash.app/$CommonwealthAmhara",
       cashappTag: "$CommonwealthAmhara",
       venmoUrl: "https://venmo.com/CommonwealthAmhara",
       venmoHandle: "@CommonwealthAmhara",
-      websiteUrl: "https://commonwealthamhara.org/events", // <-- Points to your donate page
-      websiteButtonText: "Donate", // <-- Button now says Donate
+      websiteUrl: "https://commonwealthamhara.org/events",
+      websiteButtonText: "Donate",
       accent: "border-blue-200 bg-blue-50/30 text-blue-900"
     },
     {
       id: "org2",
       name: "Federation of Amhara in North America",
       subtitle: "November 28, 29 2026 Fundraisers",
-      zelle: "fanafinance21@gmail.com",
+      zelleEmail: "fanafinance21@gmail.com",
+      zellePhone: "971-401-2577",
       cashappUrl: "https://cash.app/$fanalifeamhara",
       cashappTag: "$fanalifeamhara",
       accent: "border-purple-200 bg-purple-50/30 text-purple-900"
@@ -33,7 +34,8 @@ export default function UnifiedPaymentHub() {
       id: "org3",
       name: "Amhara Association of Seattle",
       subtitle: "November 28, 29 2026 Fundraisers",
-      zelle: "206-475-5383",
+      // zelleEmail: "seattle.amhara@gmail.com", // Add email here if they have one
+      zellePhone: "206-475-5383",            // And phone here
       banktransfer: "Chase Bank\nRouting: 325070760\nAccount: 919663523",
       accent: "border-emerald-200 bg-emerald-50/30 text-emerald-900"
     },
@@ -41,7 +43,7 @@ export default function UnifiedPaymentHub() {
       id: "org4",
       name: "Amhara Association of Georgia",
       subtitle: "November 28, 29 2026 Fundraisers",
-      zelle: "Amharageoria@gmail.com",
+      zelleEmail: "Amharageorgia@gmail.com",
       // cashappUrl: "https://cash.app/$OrgFourCashTag",
       // cashappTag: "$OrgFourCashTag",
       accent: "border-amber-200 bg-amber-50/30 text-amber-900"
@@ -61,8 +63,12 @@ export default function UnifiedPaymentHub() {
         {/* Header */}
         <header className="text-center bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-2">
-            CAAA Nov 28, 29 2026 Payment Hub
+           እኔም ከወገኖቼ ጎን እቆማለሁ! 
           </h1>
+          {/* Subheader or additional text can go here if needed */}
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-2">i, too, stand with my people!</h1>
+          
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-2">CAAA Nov 28 , 29 2026 Payment QR Hub</h1>
           <p className="text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
             Select an organization below to securely contribute via Zelle, CashApp, Venmo, Bank Transfer, or Online Checkout.
           </p>
@@ -102,18 +108,34 @@ export default function UnifiedPaymentHub() {
                     </div>
                   )}
 
-                  {/* Zelle (Copy Email/Phone) */}
-                  {org.zelle && (
+                  {/* Zelle Email */}
+                  {org.zelleEmail && (
                     <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center justify-between">
                       <div>
-                        <span className="font-bold block text-xs text-purple-700 uppercase tracking-wide">Zelle / Phone</span>
-                        <span className="font-mono text-xs sm:text-sm text-slate-700">{org.zelle}</span>
+                        <span className="font-bold block text-xs text-purple-700 uppercase tracking-wide">Zelle (Email)</span>
+                        <span className="font-mono text-xs sm:text-sm text-slate-700">{org.zelleEmail}</span>
                       </div>
                       <button 
-                        onClick={() => handleCopyText(org.zelle, `${org.id}-zelle`)}
+                        onClick={() => handleCopyText(org.zelleEmail!, `${org.id}-zelle-email`)}
                         className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-3 py-2 rounded-lg text-xs transition shadow-sm whitespace-nowrap ml-2"
                       >
-                        {copiedText === `${org.id}-zelle` ? "Copied! ✅" : "Copy"}
+                        {copiedText === `${org.id}-zelle-email` ? "Copied! ✅" : "Copy"}
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Zelle Phone (Optional) */}
+                  {org.zellePhone && (
+                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 flex items-center justify-between">
+                      <div>
+                        <span className="font-bold block text-xs text-purple-700 uppercase tracking-wide">Zelle (Phone)</span>
+                        <span className="font-mono text-xs sm:text-sm text-slate-700">{org.zellePhone}</span>
+                      </div>
+                      <button 
+                        onClick={() => handleCopyText(org.zellePhone!, `${org.id}-zelle-phone`)}
+                        className="bg-purple-600 hover:bg-purple-700 text-white font-bold px-3 py-2 rounded-lg text-xs transition shadow-sm whitespace-nowrap ml-2"
+                      >
+                        {copiedText === `${org.id}-zelle-phone` ? "Copied! ✅" : "Copy"}
                       </button>
                     </div>
                   )}
