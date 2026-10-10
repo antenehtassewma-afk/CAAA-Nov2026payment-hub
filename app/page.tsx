@@ -62,11 +62,11 @@ export default function UnifiedPaymentHub() {
         
         {/* Header */}
         <header className="text-center bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-2">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mb-2">
            እኔም ከወገኖቼ ጎን እቆማለሁ! 
-          </h1>
+          </h2>
           {/* Subheader or additional text can go here if needed */}
-          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-2">i, too, stand with my people!</h1>
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-2">I, Too, stand with my people!</h1>
           
           <h1 className="text-3xl sm:text-4xl font-black text-slate-900 mb-2">CAAA Nov 28 , 29 2026 Payment QR Hub</h1>
           <p className="text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
